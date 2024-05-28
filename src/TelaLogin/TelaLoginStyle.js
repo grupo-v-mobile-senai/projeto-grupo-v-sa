@@ -38,9 +38,7 @@ const estilos = StyleSheet.create({
     },
     areaBotaoCadastro: {
         paddingTop: 8,
-
     }
-
 })
 
 export default estilos;
