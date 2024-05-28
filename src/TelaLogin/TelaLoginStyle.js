@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 const estilos = StyleSheet.create({
     telaLogin: {
         flex: 1,
-        backgroundColor: 'grey',
+        backgroundColor: '#ceecef',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -14,17 +14,7 @@ const estilos = StyleSheet.create({
         width: 270,
         borderRadius: 8
     },
-    inputStyle: {
-        height: 40,
-        borderWidth: 1,
-        borderRadius: 4,
-        paddingLeft: 8
-
-    },
-    areaInputs: {
-        marginHorizontal: 16
-    },
-    botao: {
+    botaoLogin: {
         height: 40,
         minWidth: 40,
         marginHorizontal: 16,
@@ -33,9 +23,24 @@ const estilos = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    areaBotao: {
-        paddingTop: 20
+    areaBotaoLogin: {
+        paddingTop: 20,
+        paddingBottom: 4
+    },
+    botaoCadastro: {
+        height: 40,
+        minWidth: 40,
+        backgroundColor: '#cbdad5',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 16,
+        borderRadius: 8,
+    },
+    areaBotaoCadastro: {
+        paddingTop: 8,
+
     }
+
 })
 
 export default estilos;

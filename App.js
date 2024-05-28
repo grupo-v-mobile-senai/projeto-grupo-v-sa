@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import TelaLogin from './src/TelaLogin/TelaLogin';
 import Home from './src/home';
-import TELAS from './comum/telas';
+import TELAS from './comum/constantes/TELAS';
+import TelaCadastro from './src/TelaCadastro/TelaCadastro';
 
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,8 +16,9 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Group>
+          <Stack.Group screenOptions={{ headerShown: false}}>
             <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
+            <Stack.Screen name={TELAS.TELA_CADASTRO} component={TelaCadastro} />
           </Stack.Group>
           <Stack.Screen name={TELAS.TELA_INICIO} component={Home} options={{ title: 'Home', headerLeft: null }}></Stack.Screen>
         </Stack.Navigator>

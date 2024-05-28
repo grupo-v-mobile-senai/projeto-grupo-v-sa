@@ -1,9 +1,13 @@
 import { Pressable, Text, View, TextInput } from "react-native";
-import FONTES from "../../comum/fontes/fontes";
-
 import React from "react";
-import TELAS from "../../comum/telas";
+import ESTILOS from "../../comum/constantes/ESTILOS";
+import TELAS from "../../comum/constantes/TELAS";
 import estilos from "./TelaLoginStyle";
+import InputPersonalizado from "../../comum/componentes/InputPersonalizado/InputPersonalizado";
+import { HrI, HrII } from "../../comum/componentes/HorizontalRule/HorizontalRule";
+
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+
 
 
 const TelaLogin = (props) => {
@@ -11,40 +15,45 @@ const TelaLogin = (props) => {
     const [senha, setSenha] = React.useState('');
 
     const Entrar = () => {
-           props.navigation.navigate(TELAS.TELA_INICIO);
+        try {
+            if (!usuario.trim() || !senha.trim()) {
+                alert('Por favor preencha os campos obrigatórios!')
+            } else {
+                props.navigation.navigate(TELAS.TELA_INICIO);
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-return (
-    <View style={estilos.telaLogin}>
-        <View style={estilos.caixaLogin}>
-            <View>
-                <Text style={FONTES.fonteTitulos}>
+    const AbrirTelaCadastro = () => {
+        props.navigation.navigate(TELAS.TELA_CADASTRO)
+    }
+
+    return (
+        <View style={estilos.telaLogin}>
+            <View style={estilos.caixaLogin}>
+                <Text style={ESTILOS.ESTILO_TITULO}>
                     LOGIN
                 </Text>
-                <View style={estilos.areaInputs}>
-                    <Text>User</Text>
-                    <TextInput
-                        value={usuario}
-                        onChangeText={setUsuario}
-                        style={estilos.inputStyle} />
-                </View>
-                <View style={estilos.areaInputs}>
-                    <Text>Password</Text>
-                    <TextInput
-                        textContentType="password"
-                        value={senha}
-                        onChangeText={setSenha}
-                        style={estilos.inputStyle} />
-                </View>
-                <View style={estilos.areaBotao}>
-                    <Pressable onPress={Entrar} style={estilos.botao}>
+                <HrII />
+                <InputPersonalizado label='User:' value={usuario} onChangeText={setUsuario} />
+                <InputPersonalizado label='Password:' secureTextEntry={true} value={senha} onChangeText={setSenha} />
+                <View style={estilos.areaBotaoLogin}>
+                    <Pressable onPress={Entrar} style={estilos.botaoLogin}>
                         <Text>ENTRAR</Text>
                     </Pressable>
                 </View>
+                <HrI label='OU'/>
+                <View style={estilos.areaBotaoCadastro}>
+                    <Pressable onPress={AbrirTelaCadastro} style={estilos.botaoCadastro}>
+                        <Text>CADASTRAR NOVO</Text>
+                    </Pressable>
+                </View>
+
             </View>
         </View>
-    </View>
-)
+    )
 };
 
 export default TelaLogin;
