@@ -1,16 +1,26 @@
 import { StyleSheet } from "react-native";
 
 
-const estilos = StyleSheet.create({
-    telaLogin: {
+const estiloImagem = StyleSheet.create({
+    containerImagem: {
+        flex: 1
+    },
+    image: {
         flex: 1,
-        backgroundColor: '#ceecef',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+    },
+});
+
+const estilos = StyleSheet.create({
+    container: {
+        flex: 1,
+        
     },
     caixaLogin: {
+        display: 'flex',
         backgroundColor: '#fff',
-        height: 340,
+        height: 400,
         width: 270,
         borderRadius: 8
     },
@@ -38,7 +48,7 @@ const estilos = StyleSheet.create({
     },
     areaBotaoCadastro: {
         paddingTop: 8,
-    }
+    },
 })
 
-export default estilos;
+export {estilos, estiloImagem};

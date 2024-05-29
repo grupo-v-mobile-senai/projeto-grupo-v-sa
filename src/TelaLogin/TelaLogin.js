@@ -1,18 +1,21 @@
-import { Pressable, Text, View, TextInput } from "react-native";
+import { Pressable, Text, View, TextInput, ImageBackground } from "react-native";
 import React from "react";
 import ESTILOS from "../../comum/constantes/ESTILOS";
 import TELAS from "../../comum/constantes/TELAS";
-import estilos from "./TelaLoginStyle";
+import { estilos, estiloImagem } from "./TelaLoginStyle";
 import InputPersonalizado from "../../comum/componentes/InputPersonalizado/InputPersonalizado";
 import { HrI, HrII } from "../../comum/componentes/HorizontalRule/HorizontalRule";
 
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-
+const image = { uri: 'assets/armazem-image.jpg' };
 
 const TelaLogin = (props) => {
     const [usuario, setUsuario] = React.useState('');
     const [senha, setSenha] = React.useState('');
+
+
+
 
     const Entrar = () => {
         try {
@@ -31,27 +34,33 @@ const TelaLogin = (props) => {
     }
 
     return (
-        <View style={estilos.telaLogin}>
-            <View style={estilos.caixaLogin}>
-                <Text style={ESTILOS.ESTILO_TITULO}>
-                    LOGIN
-                </Text>
-                <HrII />
-                <InputPersonalizado label='User:' value={usuario} onChangeText={setUsuario} />
-                <InputPersonalizado label='Password:' secureTextEntry={true} value={senha} onChangeText={setSenha} />
-                <View style={estilos.areaBotaoLogin}>
-                    <Pressable onPress={Entrar} style={estilos.botaoLogin}>
-                        <Text>ENTRAR</Text>
-                    </Pressable>
-                </View>
-                <HrI label='OU'/>
-                <View style={estilos.areaBotaoCadastro}>
-                    <Pressable onPress={AbrirTelaCadastro} style={estilos.botaoCadastro}>
-                        <Text>CADASTRAR NOVO</Text>
-                    </Pressable>
-                </View>
 
+        <View style={estilos.container}>
+            <View style={estiloImagem.containerImagem}>
+                <ImageBackground source={image} resizeMode="cover" style={estiloImagem.image}>
+                    <Text style={estiloImagem.text}></Text>
+                    <View style={estilos.caixaLogin}>
+                        <Text style={ESTILOS.ESTILO_TITULO}>
+                            LOGIN
+                        </Text>
+                        <HrII />
+                        <InputPersonalizado label='User:' value={usuario} onChangeText={setUsuario} />
+                        <InputPersonalizado label='Password:' secureTextEntry={true} value={senha} onChangeText={setSenha} />
+                        <View style={estilos.areaBotaoLogin}>
+                            <Pressable onPress={Entrar} style={estilos.botaoLogin}>
+                                <Text>ENTRAR</Text>
+                            </Pressable>
+                        </View>
+                        <HrI label='OU' />
+                        <View style={estilos.areaBotaoCadastro}>
+                            <Pressable onPress={AbrirTelaCadastro} style={estilos.botaoCadastro}>
+                                <Text>CADASTRAR NOVO</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </ImageBackground>
             </View>
+
         </View>
     )
 };
