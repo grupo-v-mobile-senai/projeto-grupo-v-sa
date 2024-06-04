@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native"
 
-const estiloImagem = StyleSheet.create({
+export const estiloImagem = StyleSheet.create({
     containerImagem: {
         flex: 1
     },
@@ -11,9 +11,9 @@ const estiloImagem = StyleSheet.create({
     },
 });
 
-const estilos = StyleSheet.create({
+export const estiloTelaCadastro = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     },
     botaoCadastro: {
         height: 40,
@@ -34,11 +34,10 @@ const estilos = StyleSheet.create({
         backgroundColor: '#fff',
         height: 400,
         width: 270,
-        borderRadius: 8
+        borderRadius: 8,
+        opacity: 0.9
     },
     botaoBack: {
         alignItems: 'center',
     },
 });
-
-export { estilos as telaCadastroStyle, estiloImagem };

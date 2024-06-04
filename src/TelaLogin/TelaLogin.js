@@ -1,11 +1,10 @@
-import { Pressable, Text, View, TextInput, ImageBackground } from "react-native";
+import { Pressable, Text, View, ImageBackground } from "react-native";
 import React from "react";
 import ESTILOS from "../../comum/constantes/ESTILOS";
 import TELAS from "../../comum/constantes/TELAS";
-import { estilos, estiloImagem } from "./TelaLoginStyle";
 import InputPersonalizado from "../../comum/componentes/InputPersonalizado/InputPersonalizado";
 import { HrI, HrII } from "../../comum/componentes/HorizontalRule/HorizontalRule";
-
+import {estiloTelaLogin, estiloImagem} from '../TelaLogin/TelaLoginStyle';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const image = { uri: 'assets/armazem-image.jpg' };
@@ -35,25 +34,24 @@ const TelaLogin = (props) => {
 
     return (
 
-        <View style={estilos.container}>
+        <View style={estiloTelaLogin.container}>
             <View style={estiloImagem.containerImagem}>
                 <ImageBackground source={image} resizeMode="cover" style={estiloImagem.image}>
-                    <Text style={estiloImagem.text}></Text>
-                    <View style={estilos.caixaLogin}>
+                    <View style={estiloTelaLogin.caixaLogin}>
                         <Text style={ESTILOS.ESTILO_TITULO}>
                             LOGIN
                         </Text>
                         <HrII />
                         <InputPersonalizado label='User:' value={usuario} onChangeText={setUsuario} />
                         <InputPersonalizado label='Password:' secureTextEntry={true} value={senha} onChangeText={setSenha} />
-                        <View style={estilos.areaBotaoLogin}>
-                            <Pressable onPress={Entrar} style={estilos.botaoLogin}>
+                        <View style={estiloTelaLogin.areaBotaoLogin}>
+                            <Pressable onPress={Entrar} style={estiloTelaLogin.botaoLogin}>
                                 <Text>ENTRAR</Text>
                             </Pressable>
                         </View>
                         <HrI label='OU' />
-                        <View style={estilos.areaBotaoCadastro}>
-                            <Pressable onPress={AbrirTelaCadastro} style={estilos.botaoCadastro}>
+                        <View style={estiloTelaLogin.areaBotaoCadastro}>
+                            <Pressable onPress={AbrirTelaCadastro} style={estiloTelaLogin.botaoCadastro}>
                                 <Text>CADASTRAR NOVO</Text>
                             </Pressable>
                         </View>

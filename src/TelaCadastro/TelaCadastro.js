@@ -1,11 +1,10 @@
 import { Pressable, Text, View, TextInput, ImageBackground } from "react-native";
-import { estilos, estiloImagem } from "../TelaLogin/TelaLoginStyle";
+import { estiloTelaCadastro, estiloImagem } from "../TelaCadastro/TelaCadastroStyle";
 import ESTILOS from "../../comum/constantes/ESTILOS";
 import React from "react";
-import TELAS from "../../comum/constantes/TELAS";
 import InputPersonalizado from '../../comum/componentes/InputPersonalizado/InputPersonalizado'
-import {telaCadastroStyle} from "./TelaCadastroStyle";
 import { HrII } from "../../comum/componentes/HorizontalRule/HorizontalRule";
+import TELAS from "../../comum/constantes/TELAS";
 
 const image = { uri: 'assets/armazem-image.jpg' };
 
@@ -30,11 +29,10 @@ const TelaCadastro = ({ navigation }) => {
     }
 
     return (
-        <View style={telaCadastroStyle.container}>
+        <View style={estiloTelaCadastro.container}>
             <View style={estiloImagem.containerImagem}>
                 <ImageBackground source={image} resizeMode="cover" style={estiloImagem.image}>
-                    <Text style={estiloImagem.text}></Text>
-                    <View style={telaCadastroStyle.caixaCadastro}>
+                    <View style={estiloTelaCadastro.caixaCadastro}>
                         <Text style={ESTILOS.ESTILO_TITULO}>
                             CADASTRO
                         </Text>
@@ -42,14 +40,14 @@ const TelaCadastro = ({ navigation }) => {
                         <InputPersonalizado label='E-mail:' value={novoUsuario} onChangeText={setUNovosuario} />
                         <InputPersonalizado label='New Password:' secureTextEntry={true} value={novaSenha} onChangeText={setNovaSenha} />
                         <InputPersonalizado label='Confirm Password:' secureTextEntry={true} value={confirmeNovaSenha} onChangeText={setConfirmeNovaSenha} />
-                        <View style={estilos.areaBotaoCadastro}>
-                            <Pressable onPress={cadastrarNovo} style={estilos.botaoCadastro}>
+                        <View style={estiloTelaCadastro.areaBotaoCadastro}>
+                            <Pressable onPress={cadastrarNovo} style={estiloTelaCadastro.botaoCadastro}>
                                 <Text>CADASTRAR</Text>
                             </Pressable>
                         </View>
-                        <View style={estilos.areaBotaoCadastro}>
+                        <View style={estiloTelaCadastro.areaBotaoCadastro}>
                             <Pressable
-                                onPress={() => navigation.goBack()} style={telaCadastroStyle.botaoBack} >
+                                onPress={() => navigation.goBack()} style={estiloTelaCadastro.botaoBack} >
                                 <Text>Voltar</Text>
                             </Pressable>
                         </View>
