@@ -1,29 +1,51 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
+import CORES from '../../constantes/CORES';
 
 const estilos = StyleSheet.create({
-  container: {
-    flex: 1,
-    display: 'flex',
-    alignItems: 'start',
-    justifyContent: 'start'
-  },
   botao: {
     height: 96,
     width: 96,
+    borderRadius: 16,
     backgroundColor: 'blue'
-  }
+  },
+  botaoPrimario: {
+    backgroundColor: CORES.PRIMEIRA_COR,
+  },
+  botaoSecundario: {
+    backgroundColor: CORES.SEGUNDA_COR,
+  },
+  botaoTerciario: {
+    backgroundColor: CORES.TERCEIRA_COR,
+  },
+  botaoQuaternario: {
+    backgroundColor: CORES.QUARTA_COR
+  },
 })
 
-const BotaoCategoria = () => {
+const BotaoCategoria = (props) => {
+  const estilosBotao = [estilos.botao];
+
+  switch (props.cor) {
+    case 'primaria':
+      estilosBotao.push(estilos.botaoPrimario);
+      break;
+    case 'secundaria':
+      estilosBotao.push(estilos.botaoSecundario);
+      break;
+    case 'terciaria':
+      estilosBotao.push(estilos.botaoTerciario);
+      break;
+    case 'quaternaria':
+      estilosBotao.push(estilos.botaoQuaternario);
+      break;
+  }
   return (
-    <View style={estilos.container}>
-      <Pressable style={estilos.botao}>
-        <Text>
-          Alo
-        </Text>
-      </Pressable>
-    </View>
+    <Pressable style={estilosBotao}>
+      <Text>
+
+      </Text>
+    </Pressable>
   );
 };
 
