@@ -7,7 +7,8 @@ const estilos = StyleSheet.create({
     height: 96,
     width: 96,
     borderRadius: 16,
-    backgroundColor: 'blue'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   botaoPrimario: {
     backgroundColor: CORES.PRIMEIRA_COR,
@@ -42,9 +43,11 @@ const BotaoCategoria = (props) => {
   }
   return (
     <Pressable style={estilosBotao}>
-      <Text>
-
-      </Text>
+      <View >
+        <Text>
+          Inside
+        </Text>
+      </View>
     </Pressable>
   );
 };
