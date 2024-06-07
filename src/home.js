@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
 import BotaoCategoria from '../comum/componentes/BotaoCategoria/BotaoCategoria';
+import api from '../comum/Services/api.js';
 
 const estiloHome = StyleSheet.create({
     container: {
@@ -15,7 +16,7 @@ const estiloHome = StyleSheet.create({
         justifyContent: 'center',
         gap: 24,
         paddingTop: 40
-        
+
     },
     textoTituloTela: {
         fontSize: 24,
@@ -24,49 +25,32 @@ const estiloHome = StyleSheet.create({
     }
 })
 
-const categorias = [
-
-    {
-        id: 1,
-        nome: "",
-        imagem: "icon.png",
-        cor: "primaria"
-    },
-    {
-        nome: "",
-        imagem: "icon.png",
-        cor: "primaria"
-    },
-    {
-        nome: "",
-        imagem: "icon.png",
-        cor: "primaria"
-    },
-    {
-        nome: "",
-        imagem: "icon.png",
-        cor: "primaria"
-    },
-    {
-        nome: "",
-        imagem: "icon.png",
-        cor: "primaria"
-    },
-];
-
-
 const Home = () => {
+    const [categorias, setCategorias] = useState([])
+
+    useEffect(() => {
+        const listarCategorias = async () => {
+            const response = await api.get('/categorias');
+            setCategorias(response.data);
+        };
+
+        listarCategorias();
+    }, []);
     return (
         <View style={estiloHome.container}>
             <Text style={estiloHome.textoTituloTela}>Categorias</Text>
             <View style={estiloHome.areaBotao}>
-                    {/* <Image style={{height: 50, width: 50}} src={require('../assets/transferir.png')}/> */}
-            {
-                categorias.map(cat => <BotaoCategoria cor={cat.cor}></BotaoCategoria>)
-            }
+                {categorias.map(cat => {
+                    return (
+                        <BotaoCategoria
+                            key={cat.id}
+                            cor={cat.cor}
+                            imagem={cat.imagem}>
+                        </BotaoCategoria>
+                    )
+                })}
 
-
-           </View>
+            </View>
         </View>
     )
 };

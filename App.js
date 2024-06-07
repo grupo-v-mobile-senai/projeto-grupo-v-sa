@@ -9,6 +9,7 @@ import TELAS from './comum/constantes/TELAS';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import TelaListaProdutos from './src/TelaListaProdutos/TelaListaProdutos';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,7 @@ export default function App() {
           <Stack.Group screenOptions={{ headerShown: false }}>
             <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
             <Stack.Screen name={TELAS.TELA_CADASTRO} component={TelaCadastro} />
+            <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} />
           </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>

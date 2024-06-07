@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import CORES from '../../constantes/CORES';
+import { ImagesAssets } from '../../../assets/ImagesAssets';
+import TELAS from '../../constantes/TELAS';
 
 const estilos = StyleSheet.create({
   botao: {
@@ -22,6 +24,10 @@ const estilos = StyleSheet.create({
   botaoQuaternario: {
     backgroundColor: CORES.QUARTA_COR
   },
+  imagemCategoria: {
+    width: 50,
+    height: 50,
+  }
 })
 
 const BotaoCategoria = (props) => {
@@ -43,11 +49,10 @@ const BotaoCategoria = (props) => {
   }
   return (
     <Pressable style={estilosBotao}>
-      <View >
-        <Text>
-          Inside
-        </Text>
-      </View>
+      <Image
+        style={estilos.imagemCategoria}
+        source={ImagesAssets[props.imagem]}
+      />
     </Pressable>
   );
 };
