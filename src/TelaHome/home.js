@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
-import BotaoCategoria from '../comum/componentes/BotaoCategoria/BotaoCategoria';
-import api from '../comum/Services/api.js';
+import BotaoCategoria from '../../comum/componentes/BotaoCategoria/BotaoCategoria.js';
+import api from '../../comum/Services/api.js';
 
 const estiloHome = StyleSheet.create({
     container: {
@@ -36,6 +36,7 @@ const Home = () => {
 
         listarCategorias();
     }, []);
+    
     return (
         <View style={estiloHome.container}>
             <Text style={estiloHome.textoTituloTela}>Categorias</Text>

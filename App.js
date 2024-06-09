@@ -1,15 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, View } from 'react-native';
 import TelaLogin from './src/TelaLogin/TelaLogin';
-import Home from './src/home';
 import TelaCadastro from './src/TelaCadastro/TelaCadastro';
 import TELAS from './comum/constantes/TELAS';
-
+import Home from './src/TelaHome/home';
+import TelaListaProdutos from './src/TelaListaProdutos/TelaListaProdutos';
 
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import TelaListaProdutos from './src/TelaListaProdutos/TelaListaProdutos';
 
 const Stack = createStackNavigator();
 

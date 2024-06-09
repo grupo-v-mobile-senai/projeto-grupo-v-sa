@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import CORES from '../../constantes/CORES';
 import { ImagesAssets } from '../../../assets/ImagesAssets';
-import TELAS from '../../constantes/TELAS';
 
 const estilos = StyleSheet.create({
   botao: {

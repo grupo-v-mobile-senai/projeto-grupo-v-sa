@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native'
 
 export const ImagesAssets = {
     celular: require('./celular.png'),
