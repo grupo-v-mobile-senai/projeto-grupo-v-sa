@@ -2,12 +2,11 @@ import { StyleSheet } from "react-native";
 
 const inputPersonalizadoStyle = StyleSheet.create({
     inputStyle: {
-        borderWidth: 1,
+        // borderWidth: 1,
         borderColor: 'black',
         height: 38,
         padding: 8,
-        backgroundColor: '#fff',
-        borderRadius: 4
+        borderBottomWidth: 1,
     },
     inputArea: {
         marginHorizontal: 16,

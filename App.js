@@ -42,6 +42,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
+<<<<<<< HEAD
         <Stack.Navigator
           // initialRouteName={usuarioLogado ? TELAS.TELA_INICIO : TELAS.TELA_LOGIN}
           // screenOptions={{ cardStyle: { flex: 1 } }}
@@ -55,6 +56,18 @@ export default function App() {
             name={TELAS.TELA_INICIO}
             component={Home}
             options={{ title: 'Home', headerLeft: (props) => <ImagemTitulo {...props} /> }}>
+=======
+        <Stack.Navigator>
+          <Stack.Group screenOptions={{ headerShown: false }}>
+            <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
+            <Stack.Screen name={TELAS.TELA_CADASTRO} component={TelaCadastro} />
+            <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} />
+          </Stack.Group>
+          <Stack.Screen 
+          name={TELAS.TELA_INICIO} 
+          component={Home} 
+          options={{ title: 'Home', headerLeft: (props) => <ImagemTitulo {...props}/>  }}>
+>>>>>>> 1615445c0b66a9da73eb94cc200c0b629e1c30f0
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
