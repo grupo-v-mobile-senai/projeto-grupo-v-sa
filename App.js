@@ -24,16 +24,16 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen 
-          name={TELAS.TELA_INICIO} 
-          component={Home} 
-          options={{ title: 'Home', headerLeft: (props) => <ImagemTitulo {...props}/>  }}>
-          </Stack.Screen>
           <Stack.Group screenOptions={{ headerShown: false }}>
             <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
             <Stack.Screen name={TELAS.TELA_CADASTRO} component={TelaCadastro} />
             <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} />
           </Stack.Group>
+          <Stack.Screen 
+          name={TELAS.TELA_INICIO} 
+          component={Home} 
+          options={{ title: 'Home', headerLeft: (props) => <ImagemTitulo {...props}/>  }}>
+          </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
