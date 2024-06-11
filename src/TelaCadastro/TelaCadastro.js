@@ -37,9 +37,9 @@ const TelaCadastro = ({ navigation }) => {
                             CADASTRO
                         </Text>
                         <HrII />
-                        <InputPersonalizado label='E-mail:' value={novoUsuario} onChangeText={setUNovosuario} />
-                        <InputPersonalizado label='New Password:' secureTextEntry={true} value={novaSenha} onChangeText={setNovaSenha} />
-                        <InputPersonalizado label='Confirm Password:' secureTextEntry={true} value={confirmeNovaSenha} onChangeText={setConfirmeNovaSenha} />
+                        <InputPersonalizado label='Novo E-mail:' value={novoUsuario} onChangeText={setUNovosuario} />
+                        <InputPersonalizado label='Nova Senha:' secureTextEntry={true} value={novaSenha} onChangeText={setNovaSenha} />
+                        <InputPersonalizado label='Confirme Senha:' secureTextEntry={true} value={confirmeNovaSenha} onChangeText={setConfirmeNovaSenha} />
                         <View style={estiloTelaCadastro.areaBotaoCadastro}>
                             <Pressable onPress={cadastrarNovo} style={estiloTelaCadastro.botaoCadastro}>
                                 <Text>CADASTRAR</Text>

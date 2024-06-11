@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { View, Image, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Pressable } from 'react-native';
 import BotaoCategoria from '../../comum/componentes/BotaoCategoria/BotaoCategoria.js';
 import api from '../../comum/Services/api.js';
 
@@ -19,10 +19,27 @@ const estiloHome = StyleSheet.create({
 
     },
     textoTituloTela: {
-        fontSize: 24,
-        paddingTop: 16,
-        paddingLeft: 16
+        fontSize: 30
+    },
+    TituloTela: {
+        height: 54,
+        width: '100%',
+        paddingTop: 24,
+        paddingLeft: 24,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    botaoAdicionarCategoria: {
+        height: 22,
+        width: 22,
+        borderColor: 'black',
+        borderWidth: 2,
+        borderRadius: '50%'
+    },
+    conteudoBotaoAdicionar: {
+        fontSize: 24
     }
+
 })
 
 const Home = () => {
@@ -36,10 +53,18 @@ const Home = () => {
 
         listarCategorias();
     }, []);
-    
+
     return (
         <View style={estiloHome.container}>
-            <Text style={estiloHome.textoTituloTela}>Categorias</Text>
+
+            <View style={estiloHome.TituloTela}>
+                <Text style={estiloHome.textoTituloTela}>Categorias</Text>
+                <Pressable style={estiloHome.botaoAdicionarCategoria}>
+                    <Text style={estiloHome.conteudoBotaoAdicionar}>
+                       
+                    </Text>
+                </Pressable>
+            </View>
             <View style={estiloHome.areaBotao}>
                 {categorias.map(cat => {
                     return (

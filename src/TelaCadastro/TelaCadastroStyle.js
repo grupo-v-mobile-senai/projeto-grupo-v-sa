@@ -35,7 +35,7 @@ export const estiloTelaCadastro = StyleSheet.create({
         height: 400,
         width: 270,
         borderRadius: 8,
-        opacity: 0.9
+        // opacity: 0.9
     },
     botaoBack: {
         alignItems: 'center',

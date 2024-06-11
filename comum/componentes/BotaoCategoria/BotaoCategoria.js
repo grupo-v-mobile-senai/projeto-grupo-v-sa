@@ -24,8 +24,8 @@ const estilos = StyleSheet.create({
     backgroundColor: CORES.QUARTA_COR
   },
   imagemCategoria: {
-    width: 50,
-    height: 50,
+    width: 68,
+    height: 68,
   }
 })
 
@@ -39,10 +39,10 @@ const BotaoCategoria = (props) => {
     case 'secundaria':
       estilosBotao.push(estilos.botaoSecundario);
       break;
-    case 'terciaria':
+    case 'terceira':
       estilosBotao.push(estilos.botaoTerciario);
       break;
-    case 'quaternaria':
+    case 'quarta':
       estilosBotao.push(estilos.botaoQuaternario);
       break;
   }
