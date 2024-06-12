@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native"
 
 const CORES = {
-    FUNDO_PADRAO: '',
+    FUNDO_PADRAO: '#fff',
     FUNDO_SECUNDARIO: '',
 
 

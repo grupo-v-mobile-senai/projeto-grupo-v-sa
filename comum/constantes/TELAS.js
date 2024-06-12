@@ -3,6 +3,8 @@ const TELAS = {
         TELA_LOGIN: 'TELA_LOGIN',
         TELA_CADASTRO: 'TELA_CADASTRO',
         TELA_LISTA_PRODUTOS: 'TELA_LISTA_PRODUTOS',
+        
+        TELA_PERFIL_USUARIO: 'TELA_PERFIL_USUARIO',
 };
 
 export default TELAS;
