@@ -19,8 +19,10 @@ const estilos = StyleSheet.create({
 const TelaListaProdutos = (props) => {
     return (
         <View style={estilos.telaProdutos}>
+            <Text>
+                {props.route.params.categoria.nome}
+            </Text>
             <View style={estilos.containerProduto}>
-                
             </View>
         </View >
     )

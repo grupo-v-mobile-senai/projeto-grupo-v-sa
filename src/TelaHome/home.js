@@ -68,10 +68,10 @@ const Home = (props) => {
 
             <View style={estiloHome.TituloTela}>
                 <Text style={estiloHome.textoTituloTela}>Categorias</Text>
-                <Pressable onPress={() => props.navigation.navigate(TELAS.TELA_LISTA_PRODUTOS)} style={estiloHome.botaoAdicionarCategoria}>
-                    
+                <Pressable style={estiloHome.botaoAdicionarCategoria}>
+
                     <Text style={estiloHome.conteudoBotaoAdicionar}>
-                        
+
                     </Text>
                 </Pressable>
             </View>
@@ -79,9 +79,9 @@ const Home = (props) => {
                 {categorias.map(cat => {
                     return (
                         <BotaoCategoria
+                            categoria={cat}
                             key={cat.id}
-                            cor={cat.cor}
-                            imagem={cat.imagem}>
+                        >
                         </BotaoCategoria>
                     )
                 })}
