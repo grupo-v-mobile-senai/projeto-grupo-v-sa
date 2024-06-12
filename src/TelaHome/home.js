@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, Pressable } from 'react-native';
 import BotaoCategoria from '../../comum/componentes/BotaoCategoria/BotaoCategoria.js';
 import api from '../../comum/Services/api.js';
+import TELAS from '../../comum/constantes/TELAS.js';
 
 const estiloHome = StyleSheet.create({
     container: {
@@ -50,7 +51,7 @@ const estiloHome = StyleSheet.create({
 
 })
 
-const Home = () => {
+const Home = (props) => {
     const [categorias, setCategorias] = useState([])
 
     useEffect(() => {
@@ -67,7 +68,7 @@ const Home = () => {
 
             <View style={estiloHome.TituloTela}>
                 <Text style={estiloHome.textoTituloTela}>Categorias</Text>
-                <Pressable style={estiloHome.botaoAdicionarCategoria}>
+                <Pressable onPress={() => props.navigation.navigate(TELAS.TELA_LISTA_PRODUTOS)} style={estiloHome.botaoAdicionarCategoria}>
                     
                     <Text style={estiloHome.conteudoBotaoAdicionar}>
                         

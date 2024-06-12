@@ -13,8 +13,8 @@ import TelaListaProdutos from './src/TelaListaProdutos/TelaListaProdutos';
 import { useEffect, useState } from 'react';
 import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
-import CabecalhoCustomizado from './comum/componentes/CabecalhoCustomizado/CabecalhoCustomizado';
-import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
+// import CabecalhoCustomizado from './comum/componentes/CabecalhoCustomizado/CabecalhoCustomizado';
+// import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
 
 const Stack = createStackNavigator();
 
@@ -45,7 +45,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-<<<<<<< HEAD
         <Stack.Navigator>
           <Stack.Group screenOptions={{ headerShown: false }}>
             <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
@@ -55,23 +54,7 @@ export default function App() {
           name={TELAS.TELA_INICIO} 
           component={Home} 
           options={{ title: 'Home', headerLeft: false }} />
-        <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} />
-=======
-        <Stack.Navigator
-          initialRouteName={usuarioLogado ? TELAS.TELA_INICIO : TELAS.TELA_LOGIN}
-          screenOptions={{ cardStyle: { flex: 1 }, header: CabecalhoCustomizado }}
-        >
-          <Stack.Group screenOptions={{ headerShown: false }}>
-            <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
-            <Stack.Screen name={TELAS.TELA_CADASTRO} component={TelaCadastro} />
-            </Stack.Group>  
-          <Stack.Screen
-            name={TELAS.TELA_INICIO}
-            component={Home}
-            options={{ title: 'Home', headerLeft: (props) => <ImagemTitulo {...props} /> }}
-          />
-            <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} />
->>>>>>> cf836b27a024a99c8c1abcbaf2a79aaaa9168c2d
+        <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} options={ {title: 'Produtos'}}/>
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
