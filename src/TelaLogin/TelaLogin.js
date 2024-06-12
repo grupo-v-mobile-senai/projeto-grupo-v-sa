@@ -23,6 +23,11 @@ const TelaLogin = (props) => {
                 await adicionarItemStorage(CHAVES_STORAGE.USUARIO_LOGADO, Response.data);
                 props.navigation.navigate(TELAS.TELA_INICIO);
             }
+
+            // props.navigation.reset({
+            //     index: 0,
+            //     routes: [{ name: TELAS.TELA_INICIO}],
+            // });
         } catch (error) {
             console.log(error);
         }
