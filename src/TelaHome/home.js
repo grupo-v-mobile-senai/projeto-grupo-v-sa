@@ -19,22 +19,30 @@ const estiloHome = StyleSheet.create({
 
     },
     textoTituloTela: {
-        fontSize: 30
+        fontSize: 30,
     },
     TituloTela: {
         height: 54,
         width: '100%',
-        paddingTop: 24,
+        // paddingTop: 24,
         paddingLeft: 24,
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'space-between',
     },
     botaoAdicionarCategoria: {
-        height: 22,
-        width: 22,
+        height: 24,
+        fontSize: 18,
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: 24,
         borderColor: 'black',
-        borderWidth: 2,
-        borderRadius: '50%'
+        backgroundColor: '#87cefa',
+        borderWidth: 1,
+        borderRadius: '50%',
+        marginLeft: '40%',
+        marginRight: 16
     },
     conteudoBotaoAdicionar: {
         fontSize: 24
@@ -60,8 +68,9 @@ const Home = () => {
             <View style={estiloHome.TituloTela}>
                 <Text style={estiloHome.textoTituloTela}>Categorias</Text>
                 <Pressable style={estiloHome.botaoAdicionarCategoria}>
+                    
                     <Text style={estiloHome.conteudoBotaoAdicionar}>
-                       
+                        
                     </Text>
                 </Pressable>
             </View>

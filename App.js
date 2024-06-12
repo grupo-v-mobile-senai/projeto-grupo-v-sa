@@ -9,6 +9,7 @@ import TelaCadastro from './src/TelaCadastro/TelaCadastro';
 import TELAS from './comum/constantes/TELAS';
 import Home from './src/TelaHome/home';
 import TelaListaProdutos from './src/TelaListaProdutos/TelaListaProdutos';
+
 import { useEffect, useState } from 'react';
 import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
@@ -37,7 +38,7 @@ export default function App() {
   }, []);
 
   if (usuarioLogado === undefined) {
-    
+
   }
 
 
@@ -51,21 +52,19 @@ export default function App() {
           <Stack.Group screenOptions={{ headerShown: false }}>
             <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
             <Stack.Screen name={TELAS.TELA_CADASTRO} component={TelaCadastro} />
-            <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} />
-          </Stack.Group>  
+            </Stack.Group>  
           <Stack.Screen
             name={TELAS.TELA_INICIO}
             component={Home}
-            options={{ title: 'Home', headerLeft: (props) => <ImagemTitulo {...props} /> }}>
-          </Stack.Screen>
-          {/* <Stack.Screen name={TELAS.TELA_PERFIL_USUARIO} component={TelaPerfilUsuario} /> */}
+            options={{ title: 'Home', headerLeft: (props) => <ImagemTitulo {...props} /> }}
+          />
+            <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
