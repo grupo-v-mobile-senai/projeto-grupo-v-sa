@@ -9,6 +9,7 @@ import TelaCadastro from './src/TelaCadastro/TelaCadastro';
 import TELAS from './comum/constantes/TELAS';
 import Home from './src/TelaHome/home';
 import TelaListaProdutos from './src/TelaListaProdutos/TelaListaProdutos';
+
 import { useEffect, useState } from 'react';
 import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
@@ -35,17 +36,16 @@ export default function App() {
   }, []);
 
   if (usuarioLogado === undefined) {
-    
+
   }
 
 
   return (
     <View style={styles.container}>
       <NavigationContainer>
-<<<<<<< HEAD
-        <Stack.Navigator
-          // initialRouteName={usuarioLogado ? TELAS.TELA_INICIO : TELAS.TELA_LOGIN}
-          // screenOptions={{ cardStyle: { flex: 1 } }}
+      <Stack.Navigator
+           initialRouteName={usuarioLogado ? TELAS.TELA_INICIO : TELAS.TELA_LOGIN}
+           screenOptions={{ cardStyle: { flex: 1 } }}
         >
           {/* <Stack.Group screenOptions={{ headerShown: false }}>
             <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
@@ -56,18 +56,6 @@ export default function App() {
             name={TELAS.TELA_INICIO}
             component={Home}
             options={{ title: 'Home', headerLeft: (props) => <ImagemTitulo {...props} /> }}>
-=======
-        <Stack.Navigator>
-          <Stack.Group screenOptions={{ headerShown: false }}>
-            <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
-            <Stack.Screen name={TELAS.TELA_CADASTRO} component={TelaCadastro} />
-            <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} />
-          </Stack.Group>
-          <Stack.Screen 
-          name={TELAS.TELA_INICIO} 
-          component={Home} 
-          options={{ title: 'Home', headerLeft: (props) => <ImagemTitulo {...props}/>  }}>
->>>>>>> 1615445c0b66a9da73eb94cc200c0b629e1c30f0
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
@@ -75,7 +63,6 @@ export default function App() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
