@@ -9,6 +9,7 @@ import TelaCadastro from './src/TelaCadastro/TelaCadastro';
 import TELAS from './comum/constantes/TELAS';
 import Home from './src/TelaHome/home';
 import TelaListaProdutos from './src/TelaListaProdutos/TelaListaProdutos';
+
 import { useEffect, useState } from 'react';
 import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
@@ -35,7 +36,7 @@ export default function App() {
   }, []);
 
   if (usuarioLogado === undefined) {
-    
+
   }
 
 
@@ -58,7 +59,6 @@ export default function App() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
