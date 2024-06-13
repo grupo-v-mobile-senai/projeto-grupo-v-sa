@@ -7,7 +7,9 @@ import { HrI, HrII } from "../../comum/componentes/HorizontalRule/HorizontalRule
 import { estiloTelaLogin, estiloImagem } from '../TelaLogin/TelaLoginStyle';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { CHAVES_STORAGE } from "../../comum/constantes/chaves_storage";
-import { adicionarItemStorage } from "../../comum/Services/serviceStorage";
+import { atualizarItemStorage } from "../../comum/Services/serviceStorage";
+import api from '../../comum/Services/api';
+
 
 const image = { uri: 'assets/armazem-image.jpg' };
 
@@ -20,16 +22,16 @@ const TelaLogin = (props) => {
             if (!usuarios.trim() || !senha.trim()) {
                 alert('Por favor preencha os campos obrigatórios!')
             } else {
-                await adicionarItemStorage(CHAVES_STORAGE.USUARIO_LOGADO, Response.data);
+                const response = await api.post('/logar', { email: usuarios, senha: senha });
+
+                await atualizarItemStorage(CHAVES_STORAGE.USUARIO_LOGADO, response.data);
                 props.navigation.navigate(TELAS.TELA_INICIO);
+                props.navigation.reset({
+                    index: 0,
+                    routes: [{ name: TELAS.TELA_INICIO }],
+                });
             }
 
-            const response = await api.post('/logar', { email: usuarios, senha: senha });
-            await atualizarItemStorage(CHAVES_STORAGE.USUARIO_LOGADO, response.data);
-            props.navigation.reset({
-              index: 0,
-              routes: [{ name: TELAS.TELA_INICIO }],
-            });
         } catch (error) {
             console.log(error);
         }

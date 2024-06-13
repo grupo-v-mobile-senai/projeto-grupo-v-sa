@@ -38,7 +38,7 @@ export default function App() {
   }, []);
 
   if (usuarioLogado === undefined) {
-
+    return <></>
   }
 
 
@@ -46,17 +46,19 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator
-        screenOptions={{ cardStyle: { flex: 1 }, header: CabecalhoCustomizado }}
+          initialRouteName={usuarioLogado ? TELAS.TELA_INICIO : TELAS.TELA_LOGIN
+          }
+          screenOptions={{ cardStyle: { flex: 1 }, header: CabecalhoCustomizado }}
         >
           <Stack.Group screenOptions={{ headerShown: false }}>
             <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
             <Stack.Screen name={TELAS.TELA_CADASTRO} component={TelaCadastro} />
           </Stack.Group>
-          <Stack.Screen 
-          name={TELAS.TELA_INICIO} 
-          component={Home} 
-          options={{ title: 'Home', headerLeft: false }} />
-        <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} options={ {title: 'Produtos'}}/>
+          <Stack.Screen
+            name={TELAS.TELA_INICIO}
+            component={Home}
+            options={{ title: 'Home', headerLeft: false }} />
+          <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} options={{ title: 'Produtos' }} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />

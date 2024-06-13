@@ -9,7 +9,7 @@ export async function pegarItemStorage(chave) {
     }
 }
 
-export async function adicionarItemStorage(chave, valor) {
+export async function atualizarItemStorage(chave, valor) {
     try {
         return await AsyncStorage.setItem(chave, JSON.stringify(valor));
     } catch {
