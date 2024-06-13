@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import CORES from "../../comum/constantes/CORES";
+import estiloHome from "../TelaHome/TelaHomeStyle";
 
 const estilos = StyleSheet.create({
     telaProdutos: {
@@ -20,7 +21,12 @@ const TelaListaProdutos = (props) => {
     return (
         <View style={estilos.telaProdutos}>
             <View style={estilos.containerProduto}>
-                
+            <Pressable onPress={() => props.navigation.navigate(TELAS.TELA_LISTA_PRODUTOS)} style={estiloHome.botaoAdicionarCategoria}>
+                    
+                <Text style={estiloHome.conteudoBotaoAdicionar}>
+                        
+                </Text>
+            </Pressable>
             </View>
         </View >
     )
