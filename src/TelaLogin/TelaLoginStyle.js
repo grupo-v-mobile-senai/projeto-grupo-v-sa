@@ -12,6 +12,7 @@ import { StyleSheet } from "react-native";
             width: 270,
             borderRadius: 8,
             // opacity: 0.9
+            gap: 8
         },
         botaoLogin: {
             height: 40,
