@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import CORES from '../../constantes/CORES';
 import { ImagesAssets } from '../../../assets/ImagesAssets';
+import { useNavigation } from '@react-navigation/native';
+import TELAS from '../../constantes/TELAS';
 
 const estilos = StyleSheet.create({
   botao: {
@@ -29,10 +31,12 @@ const estilos = StyleSheet.create({
   }
 })
 
-const BotaoCategoria = (props) => {
+const BotaoCategoria = ({ categoria }) => {
+  const navigation = useNavigation()
+
   const estilosBotao = [estilos.botao];
 
-  switch (props.cor) {
+  switch (categoria.cor) {
     case 'primaria':
       estilosBotao.push(estilos.botaoPrimario);
       break;
@@ -47,10 +51,12 @@ const BotaoCategoria = (props) => {
       break;
   }
   return (
-    <Pressable style={estilosBotao}>
+    <Pressable style={estilosBotao}
+      onPress={() => navigation.navigate(TELAS.TELA_LISTA_PRODUTOS, { categoria })}
+    >
       <Image
         style={estilos.imagemCategoria}
-        source={ImagesAssets[props.imagem]}
+        source={ImagesAssets[categoria.imagem]}
       />
     </Pressable>
   );

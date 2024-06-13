@@ -4,52 +4,9 @@ import { View, StyleSheet, Text, Pressable } from 'react-native';
 import BotaoCategoria from '../../comum/componentes/BotaoCategoria/BotaoCategoria.js';
 import api from '../../comum/Services/api.js';
 import TELAS from '../../comum/constantes/TELAS.js';
+import estiloHome from './TelaHomeStyle.js';
+import CabecalhoCustomizado from '../../comum/componentes/CabecalhoCustomizado/CabecalhoCustomizado.js';
 
-const estiloHome = StyleSheet.create({
-    container: {
-        flex: 1,
-        // paddingTop: 48
-    },
-    areaBotao: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        gap: 24,
-        paddingTop: 40
-
-    },
-    textoTituloTela: {
-        fontSize: 30,
-    },
-    TituloTela: {
-        height: 54,
-        width: '100%',
-        // paddingTop: 24,
-        paddingLeft: 24,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-    botaoAdicionarCategoria: {
-        height: 24,
-        fontSize: 18,
-        alignItems: 'center',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        width: 24,
-        borderColor: 'black',
-        backgroundColor: '#87cefa',
-        borderWidth: 1,
-        borderRadius: '50%',
-        marginLeft: '40%',
-        marginRight: 16
-    },
-    conteudoBotaoAdicionar: {
-        fontSize: 24
-    }
-
-})
 
 const Home = (props) => {
     const [categorias, setCategorias] = useState([])
@@ -65,13 +22,14 @@ const Home = (props) => {
 
     return (
         <View style={estiloHome.container}>
+            <View>{CabecalhoCustomizado}</View>
 
             <View style={estiloHome.TituloTela}>
                 <Text style={estiloHome.textoTituloTela}>Categorias</Text>
-                <Pressable onPress={() => props.navigation.navigate(TELAS.TELA_LISTA_PRODUTOS)} style={estiloHome.botaoAdicionarCategoria}>
-                    
+                <Pressable style={estiloHome.botaoAdicionarCategoria}>
+
                     <Text style={estiloHome.conteudoBotaoAdicionar}>
-                        
+
                     </Text>
                 </Pressable>
             </View>
@@ -79,9 +37,9 @@ const Home = (props) => {
                 {categorias.map(cat => {
                     return (
                         <BotaoCategoria
+                            categoria={cat}
                             key={cat.id}
-                            cor={cat.cor}
-                            imagem={cat.imagem}>
+                        >
                         </BotaoCategoria>
                     )
                 })}
