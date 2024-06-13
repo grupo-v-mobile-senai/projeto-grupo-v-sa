@@ -7,7 +7,7 @@ import { HrI, HrII } from "../../comum/componentes/HorizontalRule/HorizontalRule
 import { estiloTelaLogin, estiloImagem } from '../TelaLogin/TelaLoginStyle';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { CHAVES_STORAGE } from "../../comum/constantes/chaves_storage";
-import { adicionarItemStorage, atualizarItemStorage } from "../../comum/Services/serviceStorage";
+import { atualizarItemStorage } from "../../comum/Services/serviceStorage";
 import api from '../../comum/Services/api';
 
 

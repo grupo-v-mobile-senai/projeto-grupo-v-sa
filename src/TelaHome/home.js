@@ -5,8 +5,6 @@ import BotaoCategoria from '../../comum/componentes/BotaoCategoria/BotaoCategori
 import api from '../../comum/Services/api.js';
 import TELAS from '../../comum/constantes/TELAS.js';
 import estiloHome from './TelaHomeStyle.js';
-import CabecalhoCustomizado from '../../comum/componentes/CabecalhoCustomizado/CabecalhoCustomizado.js';
-
 
 const Home = (props) => {
     const [categorias, setCategorias] = useState([])
@@ -22,8 +20,6 @@ const Home = (props) => {
 
     return (
         <View style={estiloHome.container}>
-            <View>{CabecalhoCustomizado}</View>
-
             <View style={estiloHome.TituloTela}>
                 <Text style={estiloHome.textoTituloTela}>Categorias</Text>
                 <Pressable style={estiloHome.botaoAdicionarCategoria}>
@@ -43,7 +39,6 @@ const Home = (props) => {
                         </BotaoCategoria>
                     )
                 })}
-
             </View>
         </View>
     )
