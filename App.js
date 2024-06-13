@@ -13,7 +13,7 @@ import TelaListaProdutos from './src/TelaListaProdutos/TelaListaProdutos';
 import { useEffect, useState } from 'react';
 import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
-// import CabecalhoCustomizado from './comum/componentes/CabecalhoCustomizado/CabecalhoCustomizado';
+import CabecalhoCustomizado from './comum/componentes/CabecalhoCustomizado/CabecalhoCustomizado';
 // import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
 
 const Stack = createStackNavigator();
@@ -45,7 +45,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+        screenOptions={{ cardStyle: { flex: 1 }, header: CabecalhoCustomizado }}
+        >
           <Stack.Group screenOptions={{ headerShown: false }}>
             <Stack.Screen name={TELAS.TELA_LOGIN} component={TelaLogin} />
             <Stack.Screen name={TELAS.TELA_CADASTRO} component={TelaCadastro} />
