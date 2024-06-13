@@ -5,15 +5,17 @@ import React from "react";
 import InputPersonalizado from '../../comum/componentes/InputPersonalizado/InputPersonalizado'
 import { HrII } from "../../comum/componentes/HorizontalRule/HorizontalRule";
 import TELAS from "../../comum/constantes/TELAS";
+import api from "../../comum/Services/api"
 
 const image = { uri: 'assets/armazem-image.jpg' };
 
 const TelaCadastro = ({ navigation }) => {
     const [novoUsuario, setUNovosuario] = React.useState('');
+    const [novoEmail, setUNovoEmail] = React.useState('');
     const [novaSenha, setNovaSenha] = React.useState('');
     const [confirmeNovaSenha, setConfirmeNovaSenha] = React.useState('');
 
-    const cadastrarNovo = () => {
+    const cadastrarNovo = async () => {
         try {
             if (!novoUsuario.trim() || !novaSenha.trim()) {
                 alert('Por favor preencha os campos obrigatórios!')
@@ -21,13 +23,19 @@ const TelaCadastro = ({ navigation }) => {
                 alert('As senhas não correspondem!')
             } else {
                 alert('Usuário cadastrado com sucesso!');
+                const usuarios = {
+                    nome: novoUsuario,
+                    email: novoEmail,
+                    senha: novaSenha,
+                };
+                await api.post('/usuarios', usuarios)
                 navigation.goBack(TELAS.TELA_INICIO);
             }
         } catch (error) {
             console.log(error);
         }
     }
-
+ 
     return (
         <View style={estiloTelaCadastro.container}>
             <View style={estiloImagem.containerImagem}>
@@ -37,7 +45,8 @@ const TelaCadastro = ({ navigation }) => {
                             CADASTRO
                         </Text>
                         <HrII />
-                        <InputPersonalizado label='Novo E-mail:' value={novoUsuario} onChangeText={setUNovosuario} />
+                        <InputPersonalizado label='Nome:' value={novoUsuario} onChangeText={setUNovosuario} />
+                        <InputPersonalizado label='Novo E-mail:' value={novoEmail} onChangeText={setUNovoEmail} />
                         <InputPersonalizado label='Nova Senha:' secureTextEntry={true} value={novaSenha} onChangeText={setNovaSenha} />
                         <InputPersonalizado label='Confirme Senha:' secureTextEntry={true} value={confirmeNovaSenha} onChangeText={setConfirmeNovaSenha} />
                         <View style={estiloTelaCadastro.areaBotaoCadastro}>

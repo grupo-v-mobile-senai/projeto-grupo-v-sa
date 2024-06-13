@@ -24,10 +24,12 @@ const TelaLogin = (props) => {
                 props.navigation.navigate(TELAS.TELA_INICIO);
             }
 
-            // props.navigation.reset({
-            //     index: 0,
-            //     routes: [{ name: TELAS.TELA_INICIO}],
-            // });
+            const response = await api.post('/logar', { email: usuarios, senha: senha });
+            await atualizarItemStorage(CHAVES_STORAGE.USUARIO_LOGADO, response.data);
+            props.navigation.reset({
+              index: 0,
+              routes: [{ name: TELAS.TELA_INICIO }],
+            });
         } catch (error) {
             console.log(error);
         }

@@ -32,7 +32,7 @@ export const estiloTelaCadastro = StyleSheet.create({
         // flex: 1,
         display: 'flex',
         backgroundColor: '#fff',
-        height: 400,
+        height: 415,
         width: 270,
         borderRadius: 8,
         // opacity: 0.9

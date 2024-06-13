@@ -8,9 +8,10 @@ import { StyleSheet } from "react-native";
         caixaLogin: {
             display: 'flex',
             backgroundColor: '#fff',
-            height: 400,
+            height: 410,
             width: 270,
             borderRadius: 8,
+            gap: 8,
             // opacity: 0.9
         },
         botaoLogin: {
