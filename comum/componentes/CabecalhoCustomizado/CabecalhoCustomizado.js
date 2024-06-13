@@ -9,7 +9,7 @@ const CabecalhoCustomizado = (props) => {
   return (
     <View style={estilos.container}>
       {props.navigation.canGoBack() && (
-        <MaterialIcons name='arrow-back' size={24} color={CORES.SEGUNDA_COR} onPress={props.navigation.goBack} />
+        <MaterialIcons name='arrow-back' size={24} color={CORES.PRIMEIRA_COR} onPress={props.navigation.goBack} />
       )}
 
       <Text style={estilos.titulo}>{props.options.title}</Text>

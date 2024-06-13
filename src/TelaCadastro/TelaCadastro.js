@@ -10,8 +10,8 @@ import api from "../../comum/Services/api"
 const image = { uri: 'assets/armazem-image.jpg' };
 
 const TelaCadastro = ({ navigation }) => {
-    const [novoUsuario, setUNovosuario] = React.useState('');
-    const [novoEmail, setUNovoEmail] = React.useState('');
+    const [novoUsuario, setNovoUsuario] = React.useState('');
+    const [novoEmail, setNovoEmail] = React.useState('');
     const [novaSenha, setNovaSenha] = React.useState('');
     const [confirmeNovaSenha, setConfirmeNovaSenha] = React.useState('');
 
@@ -29,7 +29,7 @@ const TelaCadastro = ({ navigation }) => {
                     senha: novaSenha,
                 };
                 await api.post('/usuarios', usuarios)
-                navigation.goBack(TELAS.TELA_INICIO);
+                navigation.goBack(TELAS.TELA_LOGIN);
             }
         } catch (error) {
             console.log(error);
@@ -45,8 +45,8 @@ const TelaCadastro = ({ navigation }) => {
                             CADASTRO
                         </Text>
                         <HrII />
-                        <InputPersonalizado label='Nome:' value={novoUsuario} onChangeText={setUNovosuario} />
-                        <InputPersonalizado label='Novo E-mail:' value={novoEmail} onChangeText={setUNovoEmail} />
+                        <InputPersonalizado label='Nome:' value={novoUsuario} onChangeText={setNovoUsuario} />
+                        <InputPersonalizado label='Novo E-mail:' value={novoEmail} onChangeText={setNovoEmail} />
                         <InputPersonalizado label='Nova Senha:' secureTextEntry={true} value={novaSenha} onChangeText={setNovaSenha} />
                         <InputPersonalizado label='Confirme Senha:' secureTextEntry={true} value={confirmeNovaSenha} onChangeText={setConfirmeNovaSenha} />
                         <View style={estiloTelaCadastro.areaBotaoCadastro}>
