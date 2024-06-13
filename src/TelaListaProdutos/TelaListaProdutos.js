@@ -20,6 +20,9 @@ const estilos = StyleSheet.create({
 const TelaListaProdutos = (props) => {
     return (
         <View style={estilos.telaProdutos}>
+            <Text>
+                {props.route.params.categoria.nome}
+            </Text>
             <View style={estilos.containerProduto}>
             <Pressable onPress={() => props.navigation.navigate(TELAS.TELA_LISTA_PRODUTOS)} style={estiloHome.botaoAdicionarCategoria}>
                     
