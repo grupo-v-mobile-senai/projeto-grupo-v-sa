@@ -9,13 +9,20 @@ import TelaCadastro from './src/TelaCadastro/TelaCadastro';
 import TELAS from './comum/constantes/TELAS';
 import Home from './src/TelaHome/home';
 import TelaListaProdutos from './src/TelaListaProdutos/TelaListaProdutos';
+import CabecalhoCustomizado from './comum/componentes/CabecalhoCustomizado/CabecalhoCustomizado';
 
 import { useEffect, useState } from 'react';
 import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
+<<<<<<< HEAD
 import CabecalhoCustomizado from './comum/componentes/CabecalhoCustomizado/CabecalhoCustomizado';
 import TelaCadastroNovoProduto from './src/TelaCadastroNovoProduto/TelaCadastroNovoProduto';
 // import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
+=======
+import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
+
+
+>>>>>>> b13d2b13a8d8dae6bfe6b7a4f724b87e85de2d66
 
 const Stack = createStackNavigator();
 
@@ -47,8 +54,7 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName={usuarioLogado ? TELAS.TELA_INICIO : TELAS.TELA_LOGIN
-          }
+          initialRouteName={usuarioLogado ? TELAS.TELA_INICIO : TELAS.TELA_LOGIN}
           screenOptions={{ cardStyle: { flex: 1 }, header: CabecalhoCustomizado }}
         >
           <Stack.Group screenOptions={{ headerShown: false }}>
@@ -60,7 +66,11 @@ export default function App() {
             component={Home}
             options={{ title: 'Home', headerLeft: false }} />
           <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} options={{ title: 'Produtos' }} />
+<<<<<<< HEAD
           <Stack.Screen name={TELAS.TELA_NOVO_PRODUTO} component={TelaCadastroNovoProduto} options={{ title: 'Novo Produto' }} />
+=======
+          <Stack.Screen name={TELAS.TELA_PERFIL_USUARIO} component={TelaPerfilUsuario} options={{ title: 'Perfil'}}/>
+>>>>>>> b13d2b13a8d8dae6bfe6b7a4f724b87e85de2d66
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />

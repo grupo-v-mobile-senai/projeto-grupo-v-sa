@@ -23,7 +23,6 @@ const TelaLogin = (props) => {
                 alert('Por favor preencha os campos obrigatórios!')
             } else {
                 const response = await api.post('/logar', { email: usuarios, senha: senha });
-
                 await atualizarItemStorage(CHAVES_STORAGE.USUARIO_LOGADO, response.data);
                 props.navigation.navigate(TELAS.TELA_INICIO);
                 props.navigation.reset({
