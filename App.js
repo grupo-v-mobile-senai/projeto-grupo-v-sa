@@ -17,6 +17,7 @@ import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
 import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
 
 
+
 const Stack = createStackNavigator();
 
 const ImagemTitulo = () => {
@@ -59,7 +60,7 @@ export default function App() {
             component={Home}
             options={{ title: 'Home', headerLeft: false }} />
           <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} options={{ title: 'Produtos' }} />
-          <Stack.Screen name={TELAS.TELA_PERFIL_USUARIO} component={TelaPerfilUsuario} />
+          <Stack.Screen name={TELAS.TELA_PERFIL_USUARIO} component={TelaPerfilUsuario} options={{ title: 'Perfil'}}/>
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
