@@ -8,7 +8,6 @@ import { CHAVES_STORAGE } from '../../constantes/chaves_storage';
 import { pegarItemStorage } from '../../Services/serviceStorage';
 
 const CabecalhoCustomizado = (props) => {
-  console.log(props)
   const [usuarioLogado, setUsuarioLogado] = useState();
 
   useEffect(() => {

@@ -13,6 +13,7 @@ import ListagemVazia from "../../comum/componentes/ListagemVazia/ListagemVazia";
 import { useState, useEffect } from "react";
 import ItemListaProdutos from "./ItemListaProdutos";
 import api from '../../comum/Services/api';
+import TELAS from "../../comum/constantes/TELAS";
 
 const estilos = StyleSheet.create({
     telaProdutos: {
@@ -37,20 +38,28 @@ const estilos = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 1,
         backgroundColor: '#fff',
+    },
+    botaoNovoProduto: {
+        width: 50,
+        height: 30,
+        backgroundColor: CORES.PRIMEIRA_COR,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 
 const TelaListaProdutos = (props) => {
     const [produtos, setProdutos] = useState([]);
-    
+
     useEffect(() => {
         const listarProdutosViaAPI = async () => {
-            const response = await api.get('./produtos');
+            const response = await api.get('./produtos/' + props.route.params.categoria.id);
             setProdutos(response.data);
+
         };
 
         listarProdutosViaAPI();
-    }, [])
+    }, [props.route.params.categoria, props.route.params.refresh])
 
     return (
         <SafeAreaView style={estilos.telaProdutos}>
@@ -61,12 +70,15 @@ const TelaListaProdutos = (props) => {
                 <TextInput style={estilos.inputPesquisaProduto} />
                 <Pressable />
             </View>
-            <FlatList 
-            data={produtos}
-            renderItem={(props) => <ItemListaProdutos {...props}/>}
-            ListEmptyComponent={ListagemVazia}
-            keyExtractor={(produto) => produto.id}
+            <FlatList
+                data={produtos}
+                renderItem={(props) => <ItemListaProdutos {...props} setProdutos={setProdutos} />}
+                ListEmptyComponent={ListagemVazia}
+                keyExtractor={(produto) => produto.id}
             />
+            <Pressable onPress={() => props.navigation.navigate(TELAS.TELA_NOVO_PRODUTO, { categoria: props.route.params.categoria })} style={estilos.botaoNovoProduto}>
+                <Text>novo</Text>
+            </Pressable>
         </SafeAreaView >
     )
 };

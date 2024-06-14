@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
 import CabecalhoCustomizado from './comum/componentes/CabecalhoCustomizado/CabecalhoCustomizado';
+import TelaCadastroNovoProduto from './src/TelaCadastroNovoProduto/TelaCadastroNovoProduto';
 // import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
 
 const Stack = createStackNavigator();
@@ -59,6 +60,7 @@ export default function App() {
             component={Home}
             options={{ title: 'Home', headerLeft: false }} />
           <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} options={{ title: 'Produtos' }} />
+          <Stack.Screen name={TELAS.TELA_NOVO_PRODUTO} component={TelaCadastroNovoProduto} options={{ title: 'Novo Produto' }} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
