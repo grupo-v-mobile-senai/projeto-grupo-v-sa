@@ -16,13 +16,10 @@ import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
 import TelaCadastroNovoProduto from './src/TelaCadastroNovoProduto/TelaCadastroNovoProduto';
 import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
-<<<<<<< HEAD
 import TelaEditarProduto from './src/TelaEditarProduto/TelaEditarProduto';
 import { NativeBaseProvider } from 'native-base';
-=======
 import TelaEditarPerfil from './src/TelaEditarPerfil/TelaEditarPerfil';
 
->>>>>>> d994faa4ef2487efdea97fb6b09a3bb217c609a5
 
 
 const Stack = createStackNavigator();
