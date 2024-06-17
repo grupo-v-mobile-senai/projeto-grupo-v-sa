@@ -21,7 +21,7 @@ const estilos = StyleSheet.create({
   },
   textoBotao: {
     color: CORES.BRANCA,
-  },
+  }
 });
 
 const BotaoCustomizado = (props) => {
@@ -45,5 +45,6 @@ const BotaoCustomizado = (props) => {
     </Pressable>
   );
 };
+
 
 export default BotaoCustomizado;

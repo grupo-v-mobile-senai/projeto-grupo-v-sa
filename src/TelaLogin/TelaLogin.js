@@ -9,6 +9,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { CHAVES_STORAGE } from "../../comum/constantes/chaves_storage";
 import { atualizarItemStorage } from "../../comum/Services/serviceStorage";
 import api from '../../comum/Services/api';
+import { Toast } from "native-base";
 
 
 const image = { uri: 'assets/armazem-image.jpg' };
@@ -20,7 +21,9 @@ const TelaLogin = (props) => {
     const Entrar = async () => {
         try {
             if (!usuarios.trim() || !senha.trim()) {
-                alert('Por favor preencha os campos obrigatórios!')
+                Toast.show({description: 'Por favor preencha os campos obrigatórios!',
+                    placement: 'top'
+                })
             } else {
                 const response = await api.post('/logar', { email: usuarios, senha: senha });
                 await atualizarItemStorage(CHAVES_STORAGE.USUARIO_LOGADO, response.data);

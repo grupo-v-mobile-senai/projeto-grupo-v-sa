@@ -16,17 +16,18 @@ import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
 import TelaCadastroNovoProduto from './src/TelaCadastroNovoProduto/TelaCadastroNovoProduto';
 import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
-
+import TelaEditarProduto from './src/TelaEditarProduto/TelaEditarProduto';
+import { NativeBaseProvider } from 'native-base';
 
 
 const Stack = createStackNavigator();
 
-const ImagemTitulo = () => {
-  <Image
-    style={{ height: 24, width: 24 }}
-    source={{ uri: 'assets/transferir.png' }}
-  />
-}
+// const ImagemTitulo = () => {
+//   <Image
+//     style={{ height: 24, width: 24 }}
+//     source={{ uri: 'assets/transferir.png' }}
+//   />
+// }
 
 export default function App() {
   const [usuarioLogado, setUsuarioLogado] = useState();
@@ -46,6 +47,7 @@ export default function App() {
 
 
   return (
+      <NativeBaseProvider>
     <View style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator
@@ -60,13 +62,15 @@ export default function App() {
             name={TELAS.TELA_INICIO}
             component={Home}
             options={{ title: 'Home', headerLeft: false }} />
+          <Stack.Screen name={TELAS.TELA_PERFIL_USUARIO} component={TelaPerfilUsuario} options={{ title: 'Perfil'}}/>
           <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} options={{ title: 'Produtos' }} />
           <Stack.Screen name={TELAS.TELA_NOVO_PRODUTO} component={TelaCadastroNovoProduto} options={{ title: 'Novo Produto' }} />
-          <Stack.Screen name={TELAS.TELA_PERFIL_USUARIO} component={TelaPerfilUsuario} options={{ title: 'Perfil'}}/>
+          <Stack.Screen name={TELAS.TELA_EDITAR_PRODUTO} component={TelaEditarProduto} options={{ title: 'Editar'}}/>
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
     </View>
+    </NativeBaseProvider>
   );
 }
 const styles = StyleSheet.create({

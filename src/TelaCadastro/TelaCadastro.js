@@ -6,6 +6,7 @@ import InputPersonalizado from '../../comum/componentes/InputPersonalizado/Input
 import { HrII } from "../../comum/componentes/HorizontalRule/HorizontalRule";
 import TELAS from "../../comum/constantes/TELAS";
 import api from "../../comum/Services/api"
+import { useToast } from "native-base";
 
 const image = { uri: 'assets/armazem-image.jpg' };
 
@@ -15,13 +16,25 @@ const TelaCadastro = ({ navigation }) => {
     const [novaSenha, setNovaSenha] = React.useState('');
     const [confirmeNovaSenha, setConfirmeNovaSenha] = React.useState('');
 
+
     const cadastrarNovo = async () => {
+    const toast = useToast()
         try {
             if (!novoUsuario.trim() || !novaSenha.trim()) {
-                alert('Por favor preencha os campos obrigatórios!')
+                toast.show({
+                    description: 'Por favor preencha os campos obrigatórios!',
+                    plcacement: 'top'
+                })
             } else if (confirmeNovaSenha !== novaSenha) {
-                alert('As senhas não correspondem!')
+                toast.show({
+                    description: 'As senhas não correspondem!',
+                    plcacement: ''
+                })
             } else {
+                toast.show({
+                    description: 'Usuário cadastrado com sucesso!',
+                    plcacement: 'top'
+                })
                 alert('Usuário cadastrado com sucesso!');
                 const usuarios = {
                     nome: novoUsuario,

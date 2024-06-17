@@ -14,48 +14,49 @@ import { useState, useEffect } from "react";
 import ItemListaProdutos from "./ItemListaProdutos";
 import api from '../../comum/Services/api';
 import TELAS from "../../comum/constantes/TELAS";
+import CampoTextoCustomizado from "../../comum/componentes/CampoTextoCustomizado/CampoTextoCustomizado";
+import { HrII } from "../../comum/componentes/HorizontalRule/HorizontalRule";
 
 const estilos = StyleSheet.create({
     telaProdutos: {
         flex: 1,
-        paddingTop: 24,
+        // paddingTop: 24,
+        margin: 16
     },
     containerProduto: {
         height: 244,
-        width: 150,
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
+        width: 100,
         backgroundColor: CORES.PRIMEIRA_COR,
     },
     nomeCategoria: {
         fontSize: 30,
-        paddingLeft: 16,
-        paddingBottom: 24
+        fontWeight: "condensedBold"
     },
     inputPesquisaProduto: {
-        height: 38,
-        width: 233,
         borderColor: 'black',
         borderWidth: 1,
         backgroundColor: '#fff',
     },
     botaoNovoProduto: {
+        fontWeight: "bold",
         width: 50,
         height: 30,
         backgroundColor: CORES.PRIMEIRA_COR,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        borderRadius: 8
     }
 });
 
 const TelaListaProdutos = (props) => {
+
     const [produtos, setProdutos] = useState([]);
+    const {categoria} = props.route.params;
 
     useEffect(() => {
         const listarProdutosViaAPI = async () => {
             const response = await api.get('./produtos/' + props.route.params.categoria.id);
             setProdutos(response.data);
-
         };
 
         listarProdutosViaAPI();
@@ -63,22 +64,25 @@ const TelaListaProdutos = (props) => {
 
     return (
         <SafeAreaView style={estilos.telaProdutos}>
-            <Text style={estilos.nomeCategoria}>
-                {props.route.params.categoria.nome}
-            </Text>
+            <View>
+                <Text style={estilos.nomeCategoria}>
+                    {props.route.params.categoria.nome}
+                </Text>  
+                <Pressable onPress={() => props.navigation.navigate(TELAS.TELA_NOVO_PRODUTO, { categoria })} style={estilos.botaoNovoProduto}>
+                    <Text style={{fontWeight: "bold"}}>novo</Text>
+                </Pressable>
+            </View>
             <View >
-                <TextInput style={estilos.inputPesquisaProduto} />
+                {/* <CampoTextoCustomizado /> */}
                 <Pressable />
             </View>
             <FlatList
                 data={produtos}
                 renderItem={(props) => <ItemListaProdutos {...props} setProdutos={setProdutos} />}
                 ListEmptyComponent={ListagemVazia}
+                ItemSeparatorComponent={HrII}
                 keyExtractor={(produto) => produto.id}
             />
-            <Pressable onPress={() => props.navigation.navigate(TELAS.TELA_NOVO_PRODUTO, { categoria: props.route.params.categoria })} style={estilos.botaoNovoProduto}>
-                <Text>novo</Text>
-            </Pressable>
         </SafeAreaView >
     )
 };

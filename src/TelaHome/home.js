@@ -22,12 +22,12 @@ const Home = (props) => {
         <View style={estiloHome.container}>
             <View style={estiloHome.TituloTela}>
                 <Text style={estiloHome.textoTituloTela}>Categorias</Text>
-                <Pressable style={estiloHome.botaoAdicionarCategoria}>
+                {/* <Pressable style={estiloHome.botaoAdicionarCategoria}>
 
                     <Text style={estiloHome.conteudoBotaoAdicionar}>
 
                     </Text>
-                </Pressable>
+                </Pressable> */}
             </View>
             <View style={estiloHome.areaBotao}>
                 {categorias.map(cat => {

@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native';
+import CORES from '../../comum/constantes/CORES';
 
 const estiloHome = StyleSheet.create({
     container: {
         flex: 1,
-        // paddingTop: 48
     },
     areaBotao: {
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'center',
-        gap: 24,
+        gap: 16,
         paddingTop: 40
 
     },
@@ -20,11 +20,10 @@ const estiloHome = StyleSheet.create({
     TituloTela: {
         height: 54,
         width: '100%',
-        // paddingTop: 24,
-        paddingLeft: 24,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        paddingLeft: 16
     },
     botaoAdicionarCategoria: {
         height: 24,

@@ -3,15 +3,19 @@ import CORES from "../../comum/constantes/CORES";
 import { useState } from "react";
 import api from '../../comum/Services/api';
 import TELAS from "../../comum/constantes/TELAS";
+import CampoTextoCustomizado from "../../comum/componentes/CampoTextoCustomizado/CampoTextoCustomizado";
+import ESTILOS from "../../comum/constantes/ESTILOS";
+import { useToast } from "native-base";
 
 const estilos = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 16
+        gap: 16,
+        margin: 16
     },
-    campoTextoCadastroProduto: {
+    campoTextoCategoria: {
         height: 40,
         width: '80%',
         backgroundColor: '#fff',
@@ -20,7 +24,8 @@ const estilos = StyleSheet.create({
     },
     botaoSalvarNovoProduto: {
         backgroundColor: CORES.QUARTA_COR,
-        width: '80%',
+        width: '100%',
+        borderRadius: 8,
         height: 40,
         alignItems: 'center',
         justifyContent: 'center'
@@ -28,41 +33,57 @@ const estilos = StyleSheet.create({
 })
 
 const TelaCadastroNovoProduto = (props) => {
-    const [campoNome, setCampoNome] = useState();
-    const [campoEstoque, setCampoEstoque] = useState();
-    const [campoCor, setCampoCor] = useState();
-    const categoria = props.route.params.categoria
+    const [campoNome, setCampoNome] = useState('');
+    const [campoEstoque, setCampoEstoque] = useState('');
+    const [campoCor, setCampoCor] = useState('');
+    const categoria = props.route.params && props.route.params.categoria ? props.route.params.categoria : null;
+
+    const toast = useToast();
+
 
     const salvar = async () => {
         try {
-            const novoProduto = {
-                nome: campoNome,
-                estoque: campoEstoque,
-                cores: campoCor,
-                categoria
+            if (!campoNome.trim() || !campoEstoque.trim()) {
+                toast.show({
+                    description: "Os Campos estão imcompletos",
+                    placement: 'bottom'
+                })
+                return <></>
+            } else {
+                const novoProduto = {
+                    nome: campoNome,
+                    estoque: campoEstoque,
+                    cores: campoCor,
+                    categoria: categoria
+                }
+                await api.post('/produtos', novoProduto);
+                toast.show({ description: 'Dados salvos com sucesso!', placement: 'top' });
+                props.navigation.navigate(TELAS.TELA_LISTA_PRODUTOS, { refresh: + new Date(), categoria });
+
             }
-            await api.post('/produtos', novoProduto);
-            alert('Dados salvos com sucesso!');
-            props.navigation.navigate(TELAS.TELA_LISTA_PRODUTOS, { refresh: +new Date(), categoria });
-            console.log(novoProduto);
         } catch (error) {
-            alert(error.response.data);
+            console.log(error.response.data)
+            toast.show({
+                description: "Algo deu errado...",
+                placement: 'top'
+            });
         }
     }
 
 
-    return (<View style={estilos.container}>
-        <Text>Novo Produto</Text>
-        <TextInput value={categoria.nome} style={estilos.campoTextoCadastroProduto} />
-        <TextInput value={campoNome} onChangeText={setCampoNome} style={estilos.campoTextoCadastroProduto} />
-        <TextInput value={campoEstoque} onChangeText={setCampoEstoque} style={estilos.campoTextoCadastroProduto} />
-        <TextInput value={campoCor} onChangeText={setCampoCor} style={estilos.campoTextoCadastroProduto} />
-        <Pressable style={estilos.botaoSalvarNovoProduto} onPress={salvar}>
-            <Text>
-                Salvar
-            </Text>
-        </Pressable>
-    </View>
+    return (
+        <View style={estilos.container}>
+            <Text style={ESTILOS.ESTILO_TITULO}>Novo Produto</Text>
+            <Text style={estilos.campoTextoCadastroProduto}>Categoria: {categoria.nome}</Text>
+            <CampoTextoCustomizado label='Nome' value={campoNome} onChangeText={setCampoNome} style={estilos.campoTextoCadastroProduto} />
+            <CampoTextoCustomizado label='Estoque disponível' value={campoEstoque} onChangeText={setCampoEstoque} style={estilos.campoTextoCadastroProduto} />
+            <CampoTextoCustomizado label='Cores disponíveis' value={campoCor} onChangeText={setCampoCor} style={estilos.campoTextoCadastroProduto} />
+            <Pressable style={estilos.botaoSalvarNovoProduto} onPress={salvar}>
+                <Text>
+                    Salvar
+                </Text>
+            </Pressable>
+        </View>
     )
 };
 

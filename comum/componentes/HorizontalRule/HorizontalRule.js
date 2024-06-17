@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 // régua horizontal com texto no meio
 const HrI = ({ label }) => {
@@ -13,16 +13,18 @@ const HrI = ({ label }) => {
     )
 };
 
+const estilos = StyleSheet.create({
+    container: {
+      height: 1,
+      backgroundColor: 'black',
+      marginTop: 12,
+      
+    },
+  });
+
 // régua horizontal sem texto
 const HrII = () => {
-    return (
-        <View style={{ flexDirection: 'row', alignItems: 'center', paddingBottom: 8 }}>
-            <View style={{ flex: 1, marginLeft: 16, height: 0.8, backgroundColor: 'black' }} />
-            <View>
-            </View>
-            <View style={{ flex: 1, marginRight: 16, height: 0.8, backgroundColor: 'black' }} />
-        </View>
-    )
+    return <View style={estilos.container}></View>;
 };
 
 
