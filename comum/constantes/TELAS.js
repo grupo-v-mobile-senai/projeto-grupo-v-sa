@@ -6,6 +6,7 @@ const TELAS = {
         TELA_NOVO_PRODUTO: 'TELA_NOVO_PRODUTO',
         
         TELA_PERFIL_USUARIO: 'TELA_PERFIL_USUARIO',
+        TELA_EDITAR_PERFIL: 'TELA_EDITAR_PERFIL'
 };
 
 export default TELAS;

@@ -16,6 +16,7 @@ import { pegarItemStorage } from './comum/Services/serviceStorage';
 import { CHAVES_STORAGE } from './comum/constantes/chaves_storage';
 import TelaCadastroNovoProduto from './src/TelaCadastroNovoProduto/TelaCadastroNovoProduto';
 import TelaPerfilUsuario from './src/TelaPerfilUsuario/TelaPerfilUsuario';
+import TelaEditarPerfil from './src/TelaEditarPerfil/TelaEditarPerfil';
 
 
 
@@ -63,6 +64,7 @@ export default function App() {
           <Stack.Screen name={TELAS.TELA_LISTA_PRODUTOS} component={TelaListaProdutos} options={{ title: 'Produtos' }} />
           <Stack.Screen name={TELAS.TELA_NOVO_PRODUTO} component={TelaCadastroNovoProduto} options={{ title: 'Novo Produto' }} />
           <Stack.Screen name={TELAS.TELA_PERFIL_USUARIO} component={TelaPerfilUsuario} options={{ title: 'Perfil'}}/>
+          <Stack.Screen name={TELAS.TELA_EDITAR_PERFIL} component={TelaEditarPerfil} options={{ title: 'Editar'}}/>
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />

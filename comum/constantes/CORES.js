@@ -8,8 +8,9 @@ const CORES = {
     PRIMEIRA_COR: '#ef3353',
     SEGUNDA_COR: '#6bacbf',
     TERCEIRA_COR: '#f4b036',
-    QUARTA_COR: '#60b99a'
-    
+    QUARTA_COR: '#60b99a',
+    VERMELHO: '#ff0000' ,
+    BOTAO_VOLTAR: '#27819c',
 
 };
 
