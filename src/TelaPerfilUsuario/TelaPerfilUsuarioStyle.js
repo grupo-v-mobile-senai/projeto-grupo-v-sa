@@ -15,7 +15,7 @@ const estilos = StyleSheet.create({
     height: 96,
     width: 96,
     borderRadius: 96,
-    backgroundColor: CORES.PRIMEIRA_COR,
+    backgroundColor: CORES.SEGUNDA_COR,
     justifyContent: 'center',
     alignItems: 'center',
   },

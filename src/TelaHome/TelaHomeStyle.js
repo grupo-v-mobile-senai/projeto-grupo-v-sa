@@ -17,6 +17,16 @@ const estiloHome = StyleSheet.create({
     textoTituloTela: {
         fontSize: 30,
     },
+    textoContagemCategorias: {
+        fontSize: 20,
+        height: 30,
+        width: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 12,
+        backgroundColor: CORES.SEGUNDA_COR,
+        paddingLeft: 9,
+    },
     TituloTela: {
         height: 54,
         width: '100%',

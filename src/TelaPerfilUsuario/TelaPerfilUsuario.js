@@ -7,11 +7,15 @@ import { Pressable, View, Text, Image } from "react-native";
 import estilos from "./TelaPerfilUsuarioStyle";
 import CampoTextoCustomizado from "../../comum/componentes/CampoTextoCustomizado/CampoTextoCustomizado";
 import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado.js/BotaoCustomizado";
-
+import api from '../../comum/Services/api';
 
 const TelaPerfilUsuario = (props) => {
     const [usuarioLogado, setUsuarioLogado] = useState();
     const [image, setImage] = useState(null);
+
+    // const [campoNome, setCampoNome] = useState(props.route.params?.usuarios.nome || '');
+    // const [campoEmail, setCampoEmail] = useState(props.route.params?.usuarios.email || '');
+    // const [campoNovaSenha, setCampoNovaSenha] = useState('');
 
     useEffect(() => {
         const verificarSeUsuarioEstaLogado = async () => {
@@ -21,8 +25,6 @@ const TelaPerfilUsuario = (props) => {
 
         verificarSeUsuarioEstaLogado();
     }, []);
-
-
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -37,10 +39,15 @@ const TelaPerfilUsuario = (props) => {
         }
     };
 
+    const editar = async () => {
+        props.navigation.navigate(TELAS.TELA_EDITAR_PERFIL);
+    }
+
     const sair = () => {
         limparStorage(CHAVES_STORAGE.USUARIO_LOGADO);
-        props.navigation.navigate(TELAS.TELA_LOGIN)
+        props.navigation.navigate(TELAS.TELA_LOGIN);
     };
+
 
     return (
         <View style={estilos.container}>
@@ -55,15 +62,21 @@ const TelaPerfilUsuario = (props) => {
                         </Pressable>
                     </View>
 
-                    <View style={{gap: 16}}>
+                    <CampoTextoCustomizado label='Nome' value={usuarioLogado?.nome}/>
 
-                    <CampoTextoCustomizado value={usuarioLogado?.nome}/>
-                    <CampoTextoCustomizado value={usuarioLogado?.email}/>
+                    <CampoTextoCustomizado label='E-mail' value={usuarioLogado?.email}/>
 
-                    <BotaoCustomizado cor='primaria'>Salvar</BotaoCustomizado>
-                    <BotaoCustomizado onPress={sair}>Sair</BotaoCustomizado>
-                    </View>
+                    {/* {!props.route.params?.usuario.id && ( */}
+                        {/* <CampoTextoCustomizado label='Nova Senha' secureTextEntry={true} value={usuarioLogado?.senha} onChangeText={setCampoNovaSenha} /> */}
+                    {/* )} */}
 
+                    <BotaoCustomizado cor='primaria' onPress={editar}>
+                        Editar
+                    </BotaoCustomizado>
+
+                    <BotaoCustomizado cor='primaria' onPress={sair}>
+                        Sair
+                    </BotaoCustomizado>
                 </>
             )}
         </View>
